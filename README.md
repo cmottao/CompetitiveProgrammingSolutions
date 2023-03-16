@@ -1,2 +1,2 @@
 # CompetitiveProgramming
-Solutions for competitive programming problems.
+Solutions to competitive programming problems using C++.
