@@ -7,10 +7,16 @@ using namespace std;
 
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
+const int MOD = 1e9 + 7;
 
 void solve() {
     int n;
     cin >> n;
+    int ans = 1;
+    for(int i = 0; i < n; i++) {
+        ans = (ans * 2) % MOD;
+    }
+    cout << ans;
 }
 
 int32_t main() {

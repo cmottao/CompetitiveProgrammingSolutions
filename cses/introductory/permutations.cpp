@@ -11,6 +11,18 @@ const int MIN = -MAX;
 void solve() {
     int n;
     cin >> n;
+
+    if(n == 2 || n == 3) {
+        cout << "NO SOLUTION";
+    }
+    else {
+        for(int i = 2; i <= n; i += 2) {
+            cout << i << " ";
+        }
+        for(int i = 1; i <= n; i += 2) {
+            cout << i << " ";
+        }
+    }
 }
 
 int32_t main() {
