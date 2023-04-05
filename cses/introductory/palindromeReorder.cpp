@@ -9,8 +9,24 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
+    string abc;
+    cin >> abc;
+    unordered_map<char, int> count;
+    for(char i: abc) {
+        count[i]++;
+    }
+    int odds = 0;
+    for(auto const& pair : count) {
+        if(pair.second % 2 == 1) {
+            odds++;
+        }
+    }
+    if(odds > 1) {
+        cout << "NO" << "\n";
+    }
+    else {
+
+    }
 }
 
 int32_t main() {
