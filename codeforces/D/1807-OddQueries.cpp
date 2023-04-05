@@ -1,6 +1,6 @@
 // Made by Cristian Motta
 #include <iostream>
-using namespace std;
+using namespace std; 
 
 #define int long long int
 #define double long double

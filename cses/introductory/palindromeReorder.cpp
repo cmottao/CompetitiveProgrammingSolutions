@@ -1,6 +1,6 @@
 // Made by Cristian Motta
 #include <bits/stdc++.h>
-using namespace std;
+using namespace std; 
 
 #define int long long int
 #define double long double
