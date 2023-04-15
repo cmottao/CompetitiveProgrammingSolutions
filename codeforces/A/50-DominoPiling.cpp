@@ -1,5 +1,5 @@
 // Made by Cristian Motta
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define int long long int
@@ -9,10 +9,7 @@ const int MAX = 100 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
-    int m;
-    cin >> m;
+    int n, m; cin >> n >> m;
     
     cout << (n * m) / 2;
 }

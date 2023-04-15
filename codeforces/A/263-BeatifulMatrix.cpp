@@ -1,5 +1,5 @@
 // Made by Cristian Motta
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define int long long int
@@ -9,13 +9,12 @@ const int MAX = 1e9 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int center = 2;
-    int row;
-    int column;
+    int center = 2, row, column;
+
     for(int i = 0; i < 5; i++) {
         for(int j = 0; j < 5; j++) {
-            int n;
-            cin >> n;
+            int n; cin >> n;
+            
             if(n == 1) {
                 row = i;
                 column = j;

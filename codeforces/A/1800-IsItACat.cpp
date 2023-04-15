@@ -1,5 +1,5 @@
 // Made by Cristian Motta
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define int long long int
@@ -9,10 +9,8 @@ const int MAX = 1000 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
-    string meow;
-    cin >> meow;
+    int n; cin >> n;
+    string meow; cin >> meow;
     bool s = true;
     int letters = 4;
 
@@ -31,10 +29,10 @@ void solve() {
         }
     }
     if(s && (meow[0] == 'm' || meow[0] == 'M') && (meow[n - 1] == 'w' || meow[n - 1] == 'W')) {
-        cout << "YES" << "\n";
+        cout << "YES" << endl;
     }
     else {
-        cout << "NO" << "\n";
+        cout << "NO" << endl;
     }
 }
 

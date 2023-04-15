@@ -9,13 +9,12 @@ const int MAX = 1e5 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
+    int n; cin >> n;
     int no = 0;
 
     for(int i = 1; i <= n; i++) {
         int places = i * i - 1;
-        cout << ((places * (places + 1)) / 2) - no << "\n";
+        cout << ((places * (places + 1)) / 2) - no << endl;
 
         no += 8 * (i - 1);
     }

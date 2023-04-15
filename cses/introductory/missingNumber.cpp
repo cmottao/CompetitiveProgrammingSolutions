@@ -8,22 +8,16 @@ using namespace std;
 const int MAX = 2 * 1e5 + 10;
 const int MIN = -MAX;
 
-bool arr[MAX];
 void solve() {
-    int n;
-    cin >> n;
+    int n; cin >> n;
+    int s = 0;
+    int s2 = (n * (n + 1)) / 2;
 
     for(int i = 0; i < n-1; i++) {
-        int x; 
-        cin >> x;
-        arr[x-1] = true;
+        int x; cin >> x;
+        s += x;
     }
-    
-    for(int i = 0; i < n; i++) {
-        if(!arr[i]) {
-            cout << i + 1;
-        }
-    }
+    cout << s2 - s;
 }
 
 int32_t main() {

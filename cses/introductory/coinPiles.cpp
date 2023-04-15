@@ -9,19 +9,16 @@ const int MAX = 1e9 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int a;
-    cin >> a;
-    int b;
-    cin >> b;
+    int a, b; cin >> a >> b;
 
     if(((a + b) % 3 == 0) && a != 0 && b != 0 && (max(a, b) <= min(a, b) * 2)) {
-        cout << "YES" << "\n";
+        cout << "YES" << endl;
     }
     else if(a == 0 && b == 0) {
-        cout << "YES" << "\n";
+        cout << "YES" << endl;
     }
     else {
-        cout << "NO" << "\n";
+        cout << "NO" << endl;
     }
 }
 

@@ -1,5 +1,5 @@
 // Made by Cristian Motta
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define int long long int
@@ -9,15 +9,13 @@ const int MAX = 150 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
-    string inc1 = "X++";
-    string inc2 = "++X";
+    int n; cin >> n;
+    string inc1 = "X++", inc2 = "++X";
     int ans = 0;
 
     for(int i = 0; i < n; i++) {
-        string statement;
-        cin >> statement;
+        string statement; cin >> statement;
+        
         if(statement == inc1 || statement == inc2) {
             ans++;
         }

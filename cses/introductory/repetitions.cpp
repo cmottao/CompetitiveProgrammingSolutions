@@ -9,14 +9,11 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    string acg;
-    cin >> acg;
-    int n = acg.size();
-    int dna = 1;
-    int s = 1;
+    string acg; cin >> acg;
+    int dna = 1, s = 1;
 
-    for(int i = 0; i < n-1; i++) {
-        if(acg[i] == acg[i+1]) {
+    for(int i = 0; i < acg.size()-1; i++) {
+        if(acg[i] == acg[i + 1]) {
             s += 1;
         }
         else {

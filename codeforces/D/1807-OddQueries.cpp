@@ -1,5 +1,5 @@
 // Made by Cristian Motta
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std; 
 
 #define int long long int
@@ -8,35 +8,27 @@ using namespace std;
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
-int arr[MAX];
 void solve() {
-    int n;
-    cin >> n;
-    int q;
-    cin >> q;
+    int n, q; cin >> n >> q;
+    int prefix_sum[n];
     int s = 0;
-    for(int i = 0; i < n; i++) {
-        int a;
-        cin >> a;
+    
+    for(int i = 1; i <= n; i++) {
+        int a; cin >> a;
         s += a;
-        arr[i] = a;
+        prefix_sum[i] = prefix_sum[i - 1] + a;
     }
+
     for(int i = 0; i < q; i++) {
-        int l;
-        cin >> l;
-        int r;
-        cin >> r;
-        int k;
-        cin >> k;
+        int l, r, k; cin >> l >> r >> k;
         int s2 = s;
-        for(int j = l-1; j < r; j++) {
-            s2 += k - arr[j];
-        }
-        if(s2 % 2 == 1) {
-            cout << "YES" << "\n";
+        s2 -= prefix_sum[r] - prefix_sum[l - 1];
+
+        if((s2 + ((r - l + 1) * k)) % 2 != 0) {
+            cout << "YES" << endl;
         }
         else {
-            cout << "NO" << "\n";
+            cout << "NO" << endl;
         }
     }
 }

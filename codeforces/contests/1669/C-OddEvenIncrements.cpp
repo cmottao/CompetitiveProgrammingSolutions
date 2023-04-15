@@ -9,19 +9,14 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
-    bool odd = true;
-    bool even = true;
-    int odd1;
-    cin >> odd1;
+    int n, odd1, even1; cin >> n >> odd1 >> even1;
+    bool odd = true, even = true;
     int odds = odd1 % 2;
-    int even1;
-    cin >> even1;
     int evens = even1 % 2;
+
     for(int i = 3; i <= n; i++) {
-        int a;
-        cin >> a;
+        int a; cin >> a;
+
         if(i % 2 == 1) {
             odd = odd && (a % 2 == odds);
         }
@@ -30,10 +25,10 @@ void solve() {
         }
     }
     if(odd && even) {
-        cout << "YES" << "\n";
+        cout << "YES" << endl;
     }
     else {
-        cout << "NO" << "\n";
+        cout << "NO" << endl;
     }
 }
 

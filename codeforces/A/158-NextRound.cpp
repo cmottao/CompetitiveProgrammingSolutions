@@ -1,5 +1,5 @@
 // Made by Cristian Motta
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define int long long int
@@ -10,17 +10,14 @@ const int MIN = -MAX;
 
 int arr[MAX];
 void solve() {
-    int n;
-    cin >> n;
-    int k;
-    cin >> k;
+    int n, k; cin >> n >> k;
     int ans = 0;
 
     for(int i = 1; i <= n; i++) {
-        int a;
-        cin >> a;
+        int a; cin >> a;
         arr[i] = a;
     }
+
     for(int i = 1; i <= n; i++) {
         if(arr[i] >= arr[k] && arr[i] > 0) {
             ans += 1;

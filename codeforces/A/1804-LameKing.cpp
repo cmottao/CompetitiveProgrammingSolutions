@@ -1,5 +1,5 @@
 // Made by Cristian Motta
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define int long long int
@@ -9,21 +9,17 @@ const int MAX = 1000 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int a;
-    cin >> a;
-    if(a < 0) {
-        a = -a;
-    }
-    int b;
-    cin >> b;
-    if(b < 0) {
-        b = -b;
-    }
+    int a; cin >> a;
+    int b; cin >> b;
+
+    a = abs(a);
+    b = abs(b);
+
     if(max(a, b) - min(a, b) <= 1) {
-        cout << a + b << "\n";
+        cout << a + b << endl;
     }
     else {
-        cout << (min(a, b) * 2) + (((max(a, b) - min(a, b)) * 2) - 1) << "\n";
+        cout << (min(a, b) * 2) + (((max(a, b) - min(a, b)) * 2) - 1) << endl;
     }
 }
 

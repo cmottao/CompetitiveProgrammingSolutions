@@ -1,5 +1,5 @@
 // Made by Cristian Motta
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define int long long int
@@ -9,20 +9,19 @@ const int MAX = 1e9 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int rating;
-    cin >> rating;
+    int rating; cin >> rating;
     
     if(rating >= 1900) {
-        cout << "Division 1" << "\n";
+        cout << "Division 1" << endl;
     }
     else if(1900 > rating && rating >= 1600) {
-        cout << "Division 2" << "\n";
+        cout << "Division 2" << endl;
     }
     else if(1600 > rating && rating >= 1400) {
-        cout << "Division 3" << "\n"; 
+        cout << "Division 3" << endl; 
     }
     else {
-        cout << "Division 4" << "\n";
+        cout << "Division 4" << endl;
     }
 }
 

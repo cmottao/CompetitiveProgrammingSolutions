@@ -9,22 +9,25 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
+    int n; cin >> n;
 
     if((n * (n + 1) / 2) % 2 == 0) {
-        cout << "YES" << "\n";
+        cout << "YES" << endl;
+
         int set1 = n / 2;
-        cout << set1 << "\n";
+        cout << set1 << endl;
+
         for(int i = 1; i <= set1 / 2; i++) {
             cout << i << " ";
         }
         for(int i = n; i > n - ((set1 / 2) + (set1 % 2)); i--) {
             cout << i << " ";
         }
-        cout << "\n";
+        cout << endl;
+
         int set2 = (n / 2) + (n % 2);
-        cout << set2 << "\n";
+        cout << set2 << endl;
+
         for(int i = set1 / 2 + 1; i <= n - ((set1 / 2) + (set1 % 2)); i++) {
             cout << i << " ";
         }

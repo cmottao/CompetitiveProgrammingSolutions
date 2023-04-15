@@ -1,6 +1,5 @@
 // Made by Cristian Motta
-#include <iostream>
-#include <map>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define int long long int
@@ -10,10 +9,10 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
+    int n; cin >> n;
     map<int, int> mp;
     int s = -1;
+
     for(int i = 0; i < n; i++) {
         int a;
         cin >> a;
@@ -22,7 +21,7 @@ void solve() {
             s = a;
         }
     }
-    cout << s << "\n";
+    cout << s << endl;
 }
 
 int32_t main() {

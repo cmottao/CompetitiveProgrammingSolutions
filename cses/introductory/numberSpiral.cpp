@@ -9,10 +9,7 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int x;
-    cin >> x;
-    int y;
-    cin >> y;
+    int x, y; cin >> x >> y;
 
     if(x > y) {
         if(x % 2 == 0) {
@@ -32,7 +29,7 @@ void solve() {
             cout << y * y + x;
         }
     }
-    cout << "\n";
+    cout << endl;
 }
 
 int32_t main() {

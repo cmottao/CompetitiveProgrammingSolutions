@@ -9,10 +9,10 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
+    int n; cin >> n;
     
     cout << n << " "; 
+    
     while(n > 1) {
         if(n % 2 == 0) {
             n /= 2;

@@ -9,13 +9,11 @@ const int MAX = 2 * 1e5 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
-
+    int n; cin >> n;
     int arr[n];
+
     for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
+        int x; cin >> x;
         arr[i] = x;
     }
 

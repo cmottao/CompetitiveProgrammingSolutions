@@ -9,8 +9,7 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n;
-    cin >> n;
+    int n; cin >> n;
 
     if(n == 2 || n == 3) {
         cout << "NO SOLUTION";
