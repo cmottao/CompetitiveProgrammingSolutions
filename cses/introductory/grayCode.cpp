@@ -10,14 +10,23 @@ const int MIN = -MAX;
 
 void solve() {
     int n; cin >> n;
-    int time = 0;
+    vector <string> strs = {"0", "1"};
+
+    for(int i = 0; i < n-1; i++) {
+        for(int j = strs.size()-1; j >= 0; j--) {
+            strs.push_back("1" + strs[j]);
+            strs[j] = "0" + strs[j];
+        }
+    }
     
-    cout << time << endl;
+    for(string x : strs) {
+        cout << x << endl;
+    }
 }
 
 int32_t main() {
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
 
     for(int t = 1; t <= tc; t++) {
         solve();
