@@ -6,7 +6,7 @@ using namespace std;
 #define double long double
 
 const int MAX = 1e6 + 10;
-const int MIN = -MAX;
+const int MIN = -MAX; 
 
 void solve() {
     int n, q; cin >> n >> q;
