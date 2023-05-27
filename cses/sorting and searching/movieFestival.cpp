@@ -10,21 +10,24 @@ const int MIN = -MAX;
 
 void solve() {
     int n; cin >> n;
-    int arr[n];
+    int ans = 0;
+    vector<pair<int, int>> v;
 
     for(int i = 0; i < n; i++) {
-        int x; cin >> x;
-        arr[i] = x;
+        int a, b; cin >> a >> b;
+        v.push_back({b, a});
     }
 
-    int s = 0;
-    for(int i = 0; i < n-1; i++) {
-        if(arr[i] > arr[i + 1]) {
-            s += arr[i] - arr[i + 1];
-            arr[i + 1] = arr[i];
+    sort(v.begin(), v.end());
+    pair<int, int> current_pair = {0, 0};
+
+    for(auto x : v) {
+        if(x.second >= current_pair.first) {
+            ans++;
+            current_pair = x;
         }
     }
-    cout << s; 
+    cout << ans; 
 }
 
 int32_t main() {

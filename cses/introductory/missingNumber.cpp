@@ -5,7 +5,7 @@ using namespace std;
 #define int long long int
 #define double long double
 
-const int MAX = 2 * 1e5 + 10;
+const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {

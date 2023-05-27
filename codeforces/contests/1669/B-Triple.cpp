@@ -14,9 +14,9 @@ void solve() {
     int s = -1;
 
     for(int i = 0; i < n; i++) {
-        int a;
-        cin >> a;
+        int a; cin >> a;
         mp[a]++; 
+
         if(mp[a] > 2) {
             s = a;
         }
