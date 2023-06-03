@@ -21,7 +21,7 @@ void solve() {
             }
         }
     }
-    cout << (max(row, center) - min(row, center)) + (max(column, center) - min(column, center));
+    cout << abs(row - center) + abs(column - center);
 }
 
 int32_t main() {
