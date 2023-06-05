@@ -5,37 +5,33 @@ using namespace std;
 #define int long long int
 #define double long double
 
-const int MAX = 1e6 + 10;
+const int MAX = 1e9 + 10;
 const int MIN = -MAX;
-const int MOD = 1e9 + 7;
 
 int dp(int x, vector<int> &c, vector<int> &ans) {
-    ans[0] = 1;
-    
-    if(ans[x] != -1) {
-        return ans[x];
-    }
-    else {
-        ans[x] = 0;
+    ans[0] = 0;
 
-        for(int i : c) {
-            if(x - i >= 0) {
-                ans[x] += dp(x - i, c, ans) % MOD;
+    for(int i = 1; i < ans.size(); i++) {
+        for(int e : c) {
+            if(i - e >= 0) {
+                ans[i] = min(ans[i], ans[i - e] + 1);
             }
         }
-        return ans[x] % MOD;
     }
+    return ans[x];
 }
 
 void solve() {
     int n, x; cin >> n >> x;
-    vector<int> c, ans(x + 1, -1);
+    vector<int> c, ans(x + 1, MAX);
 
     for(int i = 0; i < n; i++) {
         int y; cin >> y;
         c.push_back(y);
     }
-    cout << dp(x, c, ans);
+
+    int solution = dp(x, c, ans);
+    cout << (solution == MAX ? -1 : solution);
 }
 
 int32_t main() {
