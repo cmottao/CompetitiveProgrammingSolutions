@@ -9,7 +9,7 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int n, t; cin >> n, t; 
+    int n, t; cin >> n >> t; 
     string s; cin >> s;
     string s2 = s;
     char boy = 'B';
