@@ -7,6 +7,8 @@ using namespace std;
 
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
+const int INF = LLONG_MAX;
+const int MOD = 1e9 + 7;
 
 void solve() {
     int n; cin >> n;
