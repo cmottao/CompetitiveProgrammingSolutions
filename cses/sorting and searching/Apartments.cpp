@@ -16,12 +16,14 @@ void solve() {
     vector<int> a, b;
 
     for(int i = 0; i < n; i++) {
-        int ai; cin >> ai; a.push_back(ai);
+        int ai; cin >> ai; 
+        a.push_back(ai);
     }
     sort(a.begin(), a.end());
 
     for(int i = 0; i < m; i++) {
-        int bi; cin >> bi; b.push_back(bi);
+        int bi; cin >> bi; 
+        b.push_back(bi);
     }
     sort(b.begin(), b.end());
 
