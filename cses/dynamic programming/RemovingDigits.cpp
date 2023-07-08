@@ -39,6 +39,7 @@ int dp(int n, vector<int> &ans) {
 void solve() {
     int n; cin >> n;
     vector<int> ans(n + 1, -1);
+    
     cout << dp(n, ans);
 }
 
