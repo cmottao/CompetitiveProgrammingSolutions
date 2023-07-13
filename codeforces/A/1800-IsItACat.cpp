@@ -28,6 +28,7 @@ void solve() {
             s = s && (meow[i + 1] == 'w' || meow[i + 1] == 'W');
         }
     }
+    
     if(s && (meow[0] == 'm' || meow[0] == 'M') && (meow[n - 1] == 'w' || meow[n - 1] == 'W')) {
         cout << "YES" << endl;
     }

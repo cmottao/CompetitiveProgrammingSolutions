@@ -9,17 +9,14 @@ const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 
 void solve() {
-    int a; cin >> a;
-    int b; cin >> b;
+    int a, b; cin >> a >> b;
+    a = abs(a); b = abs(b);
 
-    a = abs(a);
-    b = abs(b);
-
-    if(max(a, b) - min(a, b) <= 1) {
+    if(abs(a - b) <= 1) {
         cout << a + b << endl;
     }
     else {
-        cout << (min(a, b) * 2) + (((max(a, b) - min(a, b)) * 2) - 1) << endl;
+        cout << (min(a, b) * 2) + ((abs(a - b) * 2) - 1) << endl;
     }
 }
 
