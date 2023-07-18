@@ -21,9 +21,9 @@ bool search(int n, int m) {
 }
 
 void solve() {
-    int n, m; cin >> n >> m;
-    
+    int n, m; cin >> n >> m;  
     bool ans = search(n, m);
+    
     if(ans) {
         cout << "YES" << endl;
     }
