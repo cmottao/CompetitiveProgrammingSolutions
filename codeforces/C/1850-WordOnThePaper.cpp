@@ -11,23 +11,18 @@ const int INF = 1e9;
 const int MOD = 1e9 + 7;
 
 void solve() {
-    int n; cin >> n;
-    string a; cin >> a;
-    int ans = 1, s = 1;
+    string ans = "";
 
-    for(int i = 0; i < n-1; i++) {
-        if(a[i] == a[i + 1]) {
-            s++;
-        }
-        else {
-            if(s > ans) {
-                ans = s;
+    for(int i = 0; i < 8; i++) {
+        string s; cin >> s;
+        
+        for(char ch : s) {
+            if(ch != '.') {
+                ans += ch;
             }
-            s = 1;
         }
     }
-    ans = max(ans, s);
-    cout << ans + 1 << endl;
+    cout << ans << endl;
 }
 
 int32_t main() {

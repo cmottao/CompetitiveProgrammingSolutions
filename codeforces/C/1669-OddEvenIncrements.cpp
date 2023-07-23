@@ -1,5 +1,5 @@
-// Made by Cristian Motta
-#include <iostream>
+// Made by Cristian Motta (cmottao)
+#include <bits/stdc++.h>
 using namespace std;
 
 #define int long long int
@@ -7,6 +7,8 @@ using namespace std;
 
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
+const int INF = 1e9;
+const int MOD = 1e9 + 7;
 
 void solve() {
     int n, odd1, even1; cin >> n >> odd1 >> even1;

@@ -11,23 +11,14 @@ const int INF = 1e9;
 const int MOD = 1e9 + 7;
 
 void solve() {
-    int n; cin >> n;
-    string a; cin >> a;
-    int ans = 1, s = 1;
+    int a, b, c; cin >> a >> b >> c;
 
-    for(int i = 0; i < n-1; i++) {
-        if(a[i] == a[i + 1]) {
-            s++;
-        }
-        else {
-            if(s > ans) {
-                ans = s;
-            }
-            s = 1;
-        }
+    if(a + b >= 10 || a + c >= 10 || b + c >= 10) {
+        cout << "YES" << endl;
     }
-    ans = max(ans, s);
-    cout << ans + 1 << endl;
+    else {
+        cout << "NO" << endl;
+    }
 }
 
 int32_t main() {

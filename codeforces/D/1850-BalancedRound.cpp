@@ -11,23 +11,27 @@ const int INF = 1e9;
 const int MOD = 1e9 + 7;
 
 void solve() {
-    int n; cin >> n;
-    string a; cin >> a;
-    int ans = 1, s = 1;
+    int n, k; cin >> n >> k;
+    int ans = 0, s = 1;
+    vector<int> a;
+
+    for(int i = 0; i < n; i++) {
+        int ai; cin >> ai;
+        a.push_back(ai);
+    }
+    sort(a.begin(), a.end());
 
     for(int i = 0; i < n-1; i++) {
-        if(a[i] == a[i + 1]) {
+        if(abs(a[i] - a[i + 1]) <= k) {
             s++;
         }
         else {
-            if(s > ans) {
-                ans = s;
-            }
+            ans = max(ans, s);
             s = 1;
         }
     }
     ans = max(ans, s);
-    cout << ans + 1 << endl;
+    cout << n - ans << endl;
 }
 
 int32_t main() {

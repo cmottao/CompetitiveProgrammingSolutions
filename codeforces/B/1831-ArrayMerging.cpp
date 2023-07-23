@@ -1,10 +1,10 @@
-// Made by Cristian Motta
+// Made by Cristian Motta (cmottao)
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 #define int long long int
 #define double long double
- 
+
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
 const int INF = 1e9;

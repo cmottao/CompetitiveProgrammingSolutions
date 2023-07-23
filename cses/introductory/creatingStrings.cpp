@@ -1,12 +1,14 @@
-// Made by Cristian Motta
+// Made by Cristian Motta (cmottao)
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 #define int long long int
 #define double long double
- 
+
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
+const int INF = 1e9;
+const int MOD = 1e9 + 7;
  
 vector<string> combinations(string str) {
     vector<string> strings;    

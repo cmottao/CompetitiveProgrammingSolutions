@@ -1,4 +1,4 @@
-// Made by Cristian Motta
+// Made by Cristian Motta (cmottao)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -7,6 +7,8 @@ using namespace std;
 
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
+const int INF = 1e9;
+const int MOD = 1e9 + 7;
 
 void solve() {
     int a, b, c; cin >> a >> b >> c;

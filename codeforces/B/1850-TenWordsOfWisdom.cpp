@@ -12,22 +12,17 @@ const int MOD = 1e9 + 7;
 
 void solve() {
     int n; cin >> n;
-    string a; cin >> a;
-    int ans = 1, s = 1;
+    int max = -1, ans = 0;
 
-    for(int i = 0; i < n-1; i++) {
-        if(a[i] == a[i + 1]) {
-            s++;
+    for(int i = 1; i <= n; i++) {
+        int a, b; cin >> a >> b;
+        
+        if(a <= 10 && b > max) {
+            ans = i;
+            max = b;
         }
-        else {
-            if(s > ans) {
-                ans = s;
-            }
-            s = 1;
-        }
-    }
-    ans = max(ans, s);
-    cout << ans + 1 << endl;
+    } 
+    cout << ans << endl;
 }
 
 int32_t main() {
