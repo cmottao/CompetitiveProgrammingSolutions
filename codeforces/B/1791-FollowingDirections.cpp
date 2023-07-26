@@ -12,21 +12,29 @@ const int oo = 1e9;
 
 void solve() {
     int n; cin >> n;
-    vector<int> a, a2;
+    string s; cin >> s;
+    pair<int, int> current = {0, 0};
 
-    for(int i = 0; i < n; i++) {
-        int ai; cin >> ai;
-        a.push_back(ai); a2.push_back(ai);
-    }
-    sort(a.begin(), a.end());
+    for(char ch : s) {
+        if(ch == 'U') {
+            current.second++;
+        }
+        else if(ch == 'D') {
+            current.second--;
+        }
+        else if(ch == 'R') {
+            current.first++;
+        }
+        else if(ch == 'L') {
+            current.first--;
+        }
 
-    for(int i = 0; i < n; i++) {
-        if((a[i] % 2 == 0) != (a2[i] % 2 == 0)) {
-            cout << "NO" << '\n';
+        if(current.first == 1 && current.second == 1) {
+            cout << "YES" << '\n';
             return;
         }
     }
-    cout << "YES" << '\n';
+    cout << "NO" << '\n';
 }
 
 int32_t main() {

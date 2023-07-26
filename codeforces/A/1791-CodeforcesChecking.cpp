@@ -10,33 +10,16 @@ const int MIN = -MAX;
 const int MOD = 1e9 + 7;
 const int oo = 1e9;
 
-bool check(int n, int n1, int k) {
-    if(k == 1) {
-        return true;
-    }
-    else if(n1 > n) {
-        return false;
-    }
-    else {
-        return check(n1, n - n1, k - 1);
-    }
-}
-
 void solve() {
-    int n, k; cin >> n >> k;
-    int ans = 0;
- 
-    if(k > 30) {
-        cout << ans << '\n';
-        return;
-    }
+    char c; cin >> c;
     
-    for(int i = 1; i <= n; i++) {
-        if(check(n, i, k)) {
-            ans++;
+    for(char ch : "codeforces") {
+        if(ch == c) {
+            cout << "YES" << '\n';
+            return;
         }
     }
-    cout << ans << '\n';
+    cout << "NO" << '\n';
 }
 
 int32_t main() {

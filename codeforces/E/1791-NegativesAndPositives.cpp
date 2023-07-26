@@ -10,31 +10,27 @@ const int MIN = -MAX;
 const int MOD = 1e9 + 7;
 const int oo = 1e9;
 
-bool check(int n, int n1, int k) {
-    if(k == 1) {
-        return true;
-    }
-    else if(n1 > n) {
-        return false;
-    }
-    else {
-        return check(n1, n - n1, k - 1);
-    }
-}
-
 void solve() {
-    int n, k; cin >> n >> k;
-    int ans = 0;
- 
-    if(k > 30) {
-        cout << ans << '\n';
-        return;
+    int n; cin >> n;
+    int ans = 0, negatives = 0;
+    vector<int> a(n);
+
+    for(int i = 0; i < n; i++) {
+        int ai; cin >> ai;
+
+        if(ai < 0) {
+            negatives++;
+        }
+        a[i] = abs(ai);
+    }
+    sort(a.begin(), a.end());
+
+    for(int i = 0; i < n; i++) {
+        ans += a[i];
     }
     
-    for(int i = 1; i <= n; i++) {
-        if(check(n, i, k)) {
-            ans++;
-        }
+    if(negatives % 2 != 0) {
+        ans -= a[0] * 2;
     }
     cout << ans << '\n';
 }
