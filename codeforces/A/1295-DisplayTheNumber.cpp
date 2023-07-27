@@ -12,19 +12,14 @@ const int oo = 1e9;
 
 void solve() {
     int n; cin >> n;
-    string s; cin >> s;
-    int l = 0, r = n - 1;
+    string one((n - 2) / 2, '1');
 
-    while(r >= l) {
-        if((s[l] == '0' && s[r] == '1') || (s[l] == '1' && s[r] == '0')) {
-            l++; r--; n -= 2;
-            continue;
-        }
-        else {
-            break;
-        }
+    if(n % 2 == 0) {
+        cout << one << '1' << '\n'; 
     }
-    cout << n << '\n';
+    else {
+        cout << '7' << one << '\n'; 
+    }
 }
 
 int32_t main() {

@@ -11,20 +11,18 @@ const int MOD = 1e9 + 7;
 const int oo = 1e9;
 
 void solve() {
-    int n; cin >> n;
     string s; cin >> s;
-    int l = 0, r = n - 1;
+    char prev = '0';
 
-    while(r >= l) {
-        if((s[l] == '0' && s[r] == '1') || (s[l] == '1' && s[r] == '0')) {
-            l++; r--; n -= 2;
-            continue;
+    for(int i = 0; i < s.size(); i++) {
+        if(s[i] == '?') {
+            s[i] = prev;
         }
         else {
-            break;
+            prev = s[i];
         }
     }
-    cout << n << '\n';
+    cout << s << '\n';
 }
 
 int32_t main() {

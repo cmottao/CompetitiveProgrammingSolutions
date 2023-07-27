@@ -12,22 +12,18 @@ const int MOD = 1e9 + 7;
 
 void solve() {
     int n, m, k; cin >> n >> m >> k;
-    int ans = 0;
-    vector<int> a, b;
+    int person = 0, ap = 0, ans = 0;
+    vector<int> a(n), b(m);
 
     for(int i = 0; i < n; i++) {
-        int ai; cin >> ai; 
-        a.push_back(ai);
+        cin >> a[i]; 
     }
     sort(a.begin(), a.end());
 
     for(int i = 0; i < m; i++) {
-        int bi; cin >> bi; 
-        b.push_back(bi);
+        cin >> b[i]; 
     }
     sort(b.begin(), b.end());
-
-    int person = 0, ap = 0;
 
     while(person < n && ap < m) {
         if(b[ap] >= (a[person] - k) && b[ap] <= (a[person] + k)) {

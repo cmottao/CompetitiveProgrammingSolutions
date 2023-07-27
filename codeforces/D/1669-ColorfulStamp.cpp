@@ -13,18 +13,28 @@ const int oo = 1e9;
 void solve() {
     int n; cin >> n;
     string s; cin >> s;
-    int l = 0, r = n - 1;
+    bool ans = true;
+    int b = 0, r = 0;
 
-    while(r >= l) {
-        if((s[l] == '0' && s[r] == '1') || (s[l] == '1' && s[r] == '0')) {
-            l++; r--; n -= 2;
-            continue;
+    for(char ch : s) {
+        if(ch == 'B') {
+            b++;
+        }
+        else if(ch == 'R') {
+            r++;
         }
         else {
-            break;
+            if(b > 0 || r > 0) {
+                ans &= (b != 0 && r != 0);
+            }
+            b = 0; r = 0;
         }
     }
-    cout << n << '\n';
+    
+    if(b > 0 || r > 0) {
+        ans &= (b != 0 && r != 0);
+    }
+    cout << (ans ? "YES" : "NO") << '\n';
 }
 
 int32_t main() {

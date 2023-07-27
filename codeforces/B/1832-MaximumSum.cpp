@@ -11,20 +11,24 @@ const int MOD = 1e9 + 7;
 const int oo = 1e9;
 
 void solve() {
-    int n; cin >> n;
-    string s; cin >> s;
-    int l = 0, r = n - 1;
+    int n, k; cin >> n >> k;
+    int ans = 0;
+    int a[n], pfx[n];
 
-    while(r >= l) {
-        if((s[l] == '0' && s[r] == '1') || (s[l] == '1' && s[r] == '0')) {
-            l++; r--; n -= 2;
-            continue;
-        }
-        else {
-            break;
-        }
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    cout << n << '\n';
+    sort(a, a + n);
+
+    for(int i = 1; i <= n; i++) {
+        pfx[i] = pfx[i - 1] + a[i - 1];
+    }
+
+    for(int i = 0; i <= k; i++) {
+        int l = 2 * (k - i), r = n - i;
+        ans = max(ans, pfx[r] - pfx[l]);
+    }
+    cout << ans << '\n';
 }
 
 int32_t main() {

@@ -13,20 +13,19 @@ const int MOD = 1e9 + 7;
 void solve() {
     int n; cin >> n;
     int ans = 0;
+    pair<int, int> current = {0, 0};
     vector<pair<int, int>> v;
 
     for(int i = 0; i < n; i++) {
         int a, b; cin >> a >> b;
         v.push_back({b, a});
     }
-
     sort(v.begin(), v.end());
-    pair<int, int> current_pair = {0, 0};
 
     for(auto x : v) {
-        if(x.second >= current_pair.first) {
+        if(x.second >= current.first) {
             ans++;
-            current_pair = x;
+            current = x;
         }
     }
     cout << ans; 

@@ -11,20 +11,29 @@ const int MOD = 1e9 + 7;
 const int oo = 1e9;
 
 void solve() {
-    int n; cin >> n;
-    string s; cin >> s;
+    int n, x; cin >> n >> x;
+    vector<pair<int, int>> a(n);
     int l = 0, r = n - 1;
 
-    while(r >= l) {
-        if((s[l] == '0' && s[r] == '1') || (s[l] == '1' && s[r] == '0')) {
-            l++; r--; n -= 2;
-            continue;
+    for(int i = 0; i < n; i++) {
+        int ai; cin >> ai;
+        a[i] = {ai, i + 1};
+    }
+    sort(a.begin(), a.end());
+
+    while(r > l) {
+        if(a[l].first + a[r].first == x) {
+            cout << a[l].second << ' ' << a[r].second;
+            return;
+        }
+        else if(a[l].first + a[r].first > x) {
+            r--;
         }
         else {
-            break;
+            l++;
         }
     }
-    cout << n << '\n';
+    cout << "IMPOSSIBLE";
 }
 
 int32_t main() {
@@ -32,7 +41,7 @@ int32_t main() {
     cin.tie(0); cout.tie(0);
 
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
 
     for(int t = 1; t <= tc; t++) {
         solve();
