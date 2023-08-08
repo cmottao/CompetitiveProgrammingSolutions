@@ -10,34 +10,15 @@ const int MIN = -MAX;
 const int MOD = 1e9 + 7;
 const int oo = 1e9;
 
-vector<int> memo(MAX, -1), c;
-
-int dp(int x) {
-    memo[0] = 1;
-    
-    if(memo[x] != -1) {
-        return memo[x];
-    }
-    else {
-        memo[x] = 0;
-
-        for(int i : c) {
-            if(x - i >= 0) {
-                memo[x] += dp(x - i) % MOD;
-            }
-        }
-        return memo[x] % MOD;
-    }
-}
-
 void solve() {
-    int n, x; cin >> n >> x;
+    int n; cin >> n;
+    int odd = 0;
 
     for(int i = 0; i < n; i++) {
-        int ci; cin >> ci;
-        c.push_back(ci);
+        int ai; cin >> ai;
+        odd += (ai % 2 != 0);
     }
-    cout << dp(x);
+    cout << ((odd % 2 == 0) ? "YES" : "NO") << '\n';
 }
 
 int32_t main() {
@@ -45,7 +26,7 @@ int32_t main() {
     cin.tie(0); cout.tie(0);
 
     int tc = 1;
-    // cin >> tc;
+    cin >> tc;
 
     for(int t = 1; t <= tc; t++) {
         solve();

@@ -7,43 +7,46 @@ using namespace std;
 
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
-const int INF = 1e9;
 const int MOD = 1e9 + 7;
+const int oo = 1e9;
+
+vector<int> memo(MAX, -1);
 
 vector<int> digits(int n) {
-    vector<int> digits_n;
+    vector<int> d;
 
     while(n > 0) {
-        digits_n.push_back(n % 10);
+        d.push_back(n % 10);
         n /= 10;
     }
-    return digits_n;
+    return d;
 }
 
-int dp(int n, vector<int> &ans) {
-    ans[0] = 0;
+int dp(int n) {
+    memo[0] = 0;
 
-    if(ans[n] != -1) {
-        return ans[n];
+    if(memo[n] != -1) {
+        return memo[n];
     }
     else {
-        ans[n] = INF;
+        memo[n] = oo;
 
-        for(int digit : digits(n)) {
-            ans[n] = min(ans[n], dp(n - digit, ans) + 1);
+        for(int d : digits(n)) {
+            memo[n] = min(memo[n], dp(n - d) + 1);
         }
-        return ans[n];
+        return memo[n];
     }
 }
 
 void solve() {
     int n; cin >> n;
-    vector<int> ans(n + 1, -1);
-    
-    cout << dp(n, ans);
+    cout << dp(n);
 }
 
 int32_t main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+
     int tc = 1;
     // cin >> tc;
 

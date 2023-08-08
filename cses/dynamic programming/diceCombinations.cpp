@@ -7,35 +7,38 @@ using namespace std;
 
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
-const int INF = 1e9;
 const int MOD = 1e9 + 7;
+const int oo = 1e9;
 
-int dp(int n, vector<int> &ans) {
-    ans[0] = 1;
+vector<int> memo(MAX, -1);
+
+int dp(int n) {
+    memo[0] = 1;
     
-    if(ans[n] != -1) {
-        return ans[n];
+    if(memo[n] != -1) {
+        return memo[n];
     }
     else {
-        ans[n] = 0;
+        memo[n] = 0;
 
         for(int i = 1; i <= 6; i++) {
             if(n - i >= 0) {
-                ans[n] += dp(n - i, ans) % MOD;
+                memo[n] += dp(n - i) % MOD;
             }
         }
-        return ans[n] % MOD;
+        return memo[n] % MOD;
     }
 }
 
 void solve() {
     int n; cin >> n;
-    vector<int> ans(n + 1, -1);
-
-    cout << dp(n, ans);
+    cout << dp(n);
 }
 
 int32_t main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+
     int tc = 1;
     // cin >> tc;
 
