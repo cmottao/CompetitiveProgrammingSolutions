@@ -7,23 +7,26 @@ using namespace std;
 
 const int MAX = 1e6 + 10;
 const int MIN = -MAX;
-const int INF = 1e9;
 const int MOD = 1e9 + 7;
+const int oo = 1e9;
 
 void solve() {
     int n; cin >> n;
-    int s2 = (n * (n + 1)) / 2, s = 0;
+    int ans = oo;
 
-    for(int i = 0; i < n-1; i++) {
-        int x; cin >> x;
-        s += x;
+    for(int i = 0; i < n; i++) {
+        int di, si; cin >> di >> si;
+        ans = min(ans, di + ((si - 1) / 2));
     }
-    cout << s2 - s;
+    cout << ans << '\n';
 }
 
 int32_t main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+
     int tc = 1;
-    // cin >> tc;
+    cin >> tc;
 
     for(int t = 1; t <= tc; t++) {
         solve();
