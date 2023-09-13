@@ -2,34 +2,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long int
-#define double long double
-
-const int MAX = 1e6 + 10;
-const int MIN = -MAX;
-const int INF = 1e9;
-const int MOD = 1e9 + 7;
-
 void solve() {
     int a, b; cin >> a >> b;
 
     if(((a + b) % 3 == 0) && a != 0 && b != 0 && (max(a, b) <= min(a, b) * 2)) {
-        cout << "YES" << endl;
+        cout << "YES" << '\n';
     }
     else if(a == 0 && b == 0) {
-        cout << "YES" << endl;
+        cout << "YES" << '\n';
     }
     else {
-        cout << "NO" << endl;
+        cout << "NO" << '\n';
     }
 }
 
-int32_t main() {
-    int tc = 1;
-    cin >> tc;
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
 
-    for(int t = 1; t <= tc; t++) {
-        solve();
-    }
-    return 0;
+    int t; cin >> t;
+    while(t--) solve();
 }

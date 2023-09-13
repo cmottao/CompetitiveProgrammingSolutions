@@ -2,39 +2,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long int
-#define double long double
-
-const int MAX = 1e6 + 10;
-const int MIN = -MAX;
-const int INF = 1e9;
-const int MOD = 1e9 + 7;
-
 void solve() {
     int n; cin >> n;
-    int arr[n];
+    long long ans = 0, mx = 0;
 
     for(int i = 0; i < n; i++) {
-        int x; cin >> x;
-        arr[i] = x;
+        long long xi; cin >> xi;
+        mx = max(mx, xi);
+        ans += mx - xi;
     }
-
-    int s = 0;
-    for(int i = 0; i < n-1; i++) {
-        if(arr[i] > arr[i + 1]) {
-            s += arr[i] - arr[i + 1];
-            arr[i + 1] = arr[i];
-        }
-    }
-    cout << s; 
+    cout << ans; 
 }
 
-int32_t main() {
-    int tc = 1;
-    // cin >> tc;
-
-    for(int t = 1; t <= tc; t++) {
-        solve();
-    }
-    return 0;
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    
+    solve();
 }

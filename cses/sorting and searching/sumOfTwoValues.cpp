@@ -2,14 +2,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long int
-#define double long double
-
-const int MAX = 1e6 + 10;
-const int MIN = -MAX;
-const int MOD = 1e9 + 7;
-const int oo = 1e9;
-
 void solve() {
     int n, x; cin >> n >> x;
     vector<pair<int, int>> a(n);
@@ -36,15 +28,9 @@ void solve() {
     cout << "IMPOSSIBLE";
 }
 
-int32_t main() {
+int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-
-    int tc = 1;
-    // cin >> tc;
-
-    for(int t = 1; t <= tc; t++) {
-        solve();
-    }
-    return 0;
+    
+    solve();
 }

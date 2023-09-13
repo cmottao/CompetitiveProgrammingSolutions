@@ -2,18 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long int
-#define double long double
-
-const int MAX = 1e6 + 10;
-const int MIN = -MAX;
-const int INF = 1e9;
-const int MOD = 1e9 + 7;
-
 void solve() {
-    int n; cin >> n;
-    
-    cout << n << " "; 
+    long long n; cin >> n;
+    cout << n << ' '; 
     
     while(n > 1) {
         if(n % 2 == 0) {
@@ -22,16 +13,13 @@ void solve() {
         else {
             n = n * 3 + 1;
         }
-        cout << n << " ";
+        cout << n << ' ';
     }
 }
 
-int32_t main() {
-    int tc = 1;
-    // cin >> tc;
-
-    for (int t = 1; t <= tc; t++) {
-        solve();
-    }
-    return 0;
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    
+    solve();
 }

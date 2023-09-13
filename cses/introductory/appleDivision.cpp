@@ -2,16 +2,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long int
-#define double long double
+const int oo = 1e9;
 
-const int MAX = 1e6 + 10;
-const int MIN = -MAX;
-const int INF = 1e9;
-const int MOD = 1e9 + 7;
+long long n, ans = oo, totalSum = 0;
+vector<int> s, subs;
 
-int sumSet(vector<int> set) {
-    int s = 0;
+long long sumSet(vector<int> set) {
+    long long s = 0;
 
     for(int x : set) {
         s += x;
@@ -19,42 +16,34 @@ int sumSet(vector<int> set) {
     return s;
 }
 
-void subsets(vector<int> &set, vector<int> &subset, int i, int &totalSum, int &ans) {
-    if(set.size() == i) {
-        int sum = sumSet(subset);
-        int diff = abs(2 * sum - totalSum);
-        ans = min(ans, diff);
+int subsets(int i) {
+    if(i == n) {
+        ans = min(ans, abs(2 * sumSet(subs) - totalSum));
     }
     else {
-        subset.push_back(set[i]);
-        subsets(set, subset, i + 1, totalSum, ans);
+        subs.push_back(s[i]);
+        subsets(i + 1);
 
-        subset.pop_back();
-        subsets(set, subset, i + 1, totalSum, ans);
+        subs.pop_back();
+        subsets(i + 1);
     }
+    return ans;
 }
 
 void solve() {
-    int n; cin >> n;
-    vector<int> set, subset;
+    cin >> n;
 
     for(int i = 0; i < n; i++) {
-        int x; cin >> x;
-        set.push_back(x);
+        int pi; cin >> pi;
+        s.push_back(pi);
+        totalSum += pi;
     }
-    int totalSum = sumSet(set);
-    int ans = INF;
-
-    subsets(set, subset, 0, totalSum, ans);
-    cout << ans;
+    cout << subsets(0);
 }
 
-int32_t main() {
-    int tc = 1;
-    // cin >> tc;
-
-    for(int t = 1; t <= tc; t++) {
-        solve();
-    }
-    return 0;
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    
+    solve();
 }

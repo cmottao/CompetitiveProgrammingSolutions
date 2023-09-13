@@ -2,16 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long int
-#define double long double
-
-const int MAX = 1e6 + 10;
-const int MIN = -MAX;
-const int INF = 1e9;
-const int MOD = 1e9 + 7;
-
 void solve() {
     string st; cin >> st;
+    string left = "", right, middle = "";
     map<char, int> counts;
     int odds = 0;
 
@@ -19,40 +12,28 @@ void solve() {
         counts[ch]++;
     }
 
-    string left = "", right, middle = "";
-    bool s = true;
-
-    for(auto pair : counts) {
-        if(pair.second % 2 != 0) {
-            if(odds == 0) {
-                middle += string(pair.second, pair.first);
+    for(auto p : counts) {
+        if(p.second % 2 != 0) {
+            if(!odds) {
+                middle += string(p.second, p.first);
                 odds++;
             }
             else {
-                s = false;
+                cout << "NO SOLUTION";
+                return;
             }
         }
         else {
-            left += string(pair.second / 2, pair.first);
+            left += string(p.second / 2, p.first);
         }
     }
     right = left; reverse(right.begin(), right.end());
-    string palindrome = left + middle + right;
-
-    if(s) {
-        cout << palindrome;
-    }
-    else {
-        cout << "NO SOLUTION";
-    }
+    cout << left + middle + right;
 }
 
-int32_t main() {
-    int tc = 1;
-    // cin >> tc;
-
-    for(int t = 1; t <= tc; t++) {
-        solve();
-    }
-    return 0;
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    
+    solve();
 }
