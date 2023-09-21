@@ -2,8 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Calculates the sum of elements within the specified ranges using prefix sums.
-void prefixSum() {
+void solve() {
     int n, q; cin >> n >> q;
     int pfx[n];
 
@@ -14,6 +13,6 @@ void prefixSum() {
 
     for(int i = 0; i < q; i++) {
         int l, r; cin >> l >> r;
-        cout << pfx[r] - pfx[l - 1] << endl;
+        cout << pfx[r] - pfx[l - 1] << '\n';
     }
 }

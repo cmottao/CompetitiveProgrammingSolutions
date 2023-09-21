@@ -2,8 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Calculates the length of the longest subsequence with identical elements.
-void longestSubsequence() {
+void solve() {
     int n; cin >> n;
     int ans = 1, s = 1;
     int a[n];
@@ -21,5 +20,5 @@ void longestSubsequence() {
         }
         ans = max(ans, s);
     }
-    cout << ans << endl;
+    cout << ans << '\n';
 }

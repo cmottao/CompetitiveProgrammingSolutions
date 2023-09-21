@@ -2,13 +2,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Performs binary search on a sorted array to find the presence of an element.
-bool binarySearch(int a[], int l, int r, int x) {
+void solve() {
+    int n; cin >> n;
+    vector<int> a(n);
+    int l = 0, r = n - 1, x;
+    bool ans = false;
+
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end());
+
     while(l <= r) {
         int m = (l + r) / 2;
 
         if(a[m] == x) {
-            return true;
+            ans = true;
         }
         else if(a[m] < x) {
             l = m + 1;
@@ -17,5 +26,5 @@ bool binarySearch(int a[], int l, int r, int x) {
             r = m - 1;
         }
     }
-    return false;
+    cout << (ans ? "YES" : "NO") << '\n';
 }
