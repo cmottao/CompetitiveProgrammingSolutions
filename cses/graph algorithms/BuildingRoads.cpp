@@ -4,8 +4,8 @@ using namespace std;
 
 const int MAX = 1e5 + 10;
 
-vector<vector<int>> adj(MAX);
-vector<bool> visited(MAX, false);
+vector<int> adj[MAX];
+bool visited[MAX];
 
 void dfs(int s) {
     if(visited[s]) {
