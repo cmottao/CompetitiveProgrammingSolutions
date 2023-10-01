@@ -3,6 +3,7 @@
 using namespace std;
  
 const int MAX = 1e3 + 10;
+const int oo = 1e9;
 
 pair<int, int> moves[] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 map<pair<int, int>, char> path = {{{1, 0}, 'D'}, {{0, 1}, 'R'}, {{-1, 0}, 'U'}, {{0, -1}, 'L'}};
@@ -18,13 +19,15 @@ void solve() {
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < m; j++) {
             cin >> l[i][j];
-            distM[i][j] = distA[i][j] = 0;
+            distM[i][j] = oo;
+            distA[i][j] = 0;
  
             if(l[i][j] == 'A') {
                 a = {i, j};
                 q.push(a);
             }
             else if(l[i][j] == 'M') {
+                distM[i][j] = 0;
                 qm.push({i, j});
             }
         }
@@ -36,7 +39,7 @@ void solve() {
         for(int i = 0; i < 4; i++) {
             pair<int, int> nxt = {cur.first + moves[i].first, cur.second + moves[i].second};
  
-            if(nxt.first < n && nxt.first >= 0 && nxt.second < m && nxt.second >= 0 && l[nxt.first][nxt.second] != '#' && !distM[nxt.first][nxt.second]) {
+            if(nxt.first < n && nxt.first >= 0 && nxt.second < m && nxt.second >= 0 && l[nxt.first][nxt.second] != '#' && distM[nxt.first][nxt.second] == oo) {
                 distM[nxt.first][nxt.second] = distM[cur.first][cur.second] + 1;
                 qm.push(nxt);
             }
@@ -54,7 +57,7 @@ void solve() {
         for(int i = 0; i < 4; i++) {
             pair<int, int> nxt = {cur.first + moves[i].first, cur.second + moves[i].second};
  
-            if(nxt.first < n && nxt.first >= 0 && nxt.second < m && nxt.second >= 0 && l[nxt.first][nxt.second] != '#' && !distA[nxt.first][nxt.second]) {
+            if(nxt.first < n && nxt.first >= 0 && nxt.second < m && nxt.second >= 0 && l[nxt.first][nxt.second] != '#' && !distA[nxt.first][nxt.second] && distA[cur.first][cur.second] + 1 < distM[nxt.first][nxt.second]) {
                 distA[nxt.first][nxt.second] = distA[cur.first][cur.second] + 1;
                 parent[nxt.first][nxt.second] = cur;
                 q.push(nxt);
@@ -81,8 +84,13 @@ void solve() {
 }
  
 int main() {
+    #if LOCAL
+        freopen("output.txt", "w", stdout);
+        freopen("input.txt", "r", stdin);
+    #endif
+
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
- 
+
     solve();
 }
