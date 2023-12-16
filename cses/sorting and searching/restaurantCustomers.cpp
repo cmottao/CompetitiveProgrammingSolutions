@@ -2,23 +2,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time complexity: O(n^2)
 void solve() {
     int n; cin >> n;
-    int a[n][n];
+    vector<pair<int, int>> e(2 * n);
+    int ans = 0, c = 0;
 
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            cin >> a[i][j];
-        }
+    for(int i = 0; i < 2*n; i++) {
+        e[i].second = (i % 2) ? -1 : 1;
+        cin >> e[i].first;
     }
+    sort(e.begin(), e.end());
 
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < n; j++) {
-            cout << a[j][i] << ' ';
-        }
-        cout << '\n';
+    for(int i = 0; i < 2*n; i++) {
+        c += e[i].second;
+        ans = max(ans, c);
     }
+    cout << ans;
 }
 
 int main() {

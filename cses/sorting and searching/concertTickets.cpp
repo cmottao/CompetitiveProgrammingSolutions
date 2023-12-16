@@ -2,29 +2,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 1e6 + 10;
-
-vector<int> a(MAX, 0);
-
 void solve() {
-    int n; cin >> n;
-    int ans = 0;
-    
+    int n, m; cin >> n >> m;
+    multiset<int> h;
+
     for(int i = 0; i < n; i++) {
         int hi; cin >> hi;
+        h.insert(hi);
+    }
 
-        if(a[hi]) {
-            a[hi]--;
+    for(int i = 0; i < m; i++) {
+        int ti; cin >> ti;
+        auto it = h.upper_bound(ti);
+
+        if(it != h.begin()) {
+            cout << *(--it) << '\n';
+            h.erase(it);
         }
         else {
-            ans++;
-        }
-
-        if(hi - 1 > 0) {
-            a[hi - 1]++;
+            cout << -1 << '\n';
         }
     }
-    cout << ans;
 }
 
 int main() {

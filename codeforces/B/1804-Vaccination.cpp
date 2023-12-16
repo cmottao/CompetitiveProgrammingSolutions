@@ -2,24 +2,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time complexity: O(n^2)
 void solve() {
-    int n, v; cin >> n >> v;
-    vector<int> a(n);
+    int n, k, d, w; cin >> n >> k >> d >> w;
+    vector<int> t(n);
     
     for(int i = 0; i < n; i++) {
-        cin >> a[i];
+        cin >> t[i];
     }
-    
-    for(int i = 0; i < n-1; i++) {
-        for(int j = i+1; j < n; j++) {
-            if(a[i] + a[j] == v) {
-                cout << "YES";
-                return;
-            }
-        }
-    }
-    cout << "NO";
+        
 }
 
 int main() {
@@ -31,5 +21,6 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
 
-    solve();
+    int t; cin >> t;
+    while(t--) solve();
 }

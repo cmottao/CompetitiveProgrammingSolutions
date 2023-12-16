@@ -4,7 +4,9 @@ using namespace std;
 
 void solve() {
     int n, k; cin >> n >> k;
-    cout << (k ^ (k >> 1)) << '\n';
+    k *= (k + n - 1) / k;
+
+    cout << (k + n - 1) / n << '\n'; 
 }
 
 int main() {

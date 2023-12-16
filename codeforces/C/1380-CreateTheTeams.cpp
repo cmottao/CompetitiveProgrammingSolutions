@@ -2,22 +2,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Time complexity: O(n log(n))
 void solve() {
-    int n, a, b; cin >> n >> a >> b;
-    vector<int> c(n);
+    int n, x; cin >> n >> x;
+    vector<int> a(n);
+    int ans = 0, cur = 0;
+    
+    for(int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    sort(a.rbegin(), a.rend());
 
     for(int i = 0; i < n; i++) {
-        cin >> c[i];
-    }
-    sort(c.begin(), c.end());
+        cur++;
 
-    int l = lower_bound(c.begin(), c.end(), a) - c.begin();
-    int r = upper_bound(c.begin(), c.end(), b) - c.begin();
-
-    for(int i = l; i < r; i++) {
-        cout << c[i] << ' ';
+        if(cur * a[i] >= x) {
+            cur = 0;
+            ans++;
+        }
     }
+    cout << ans << '\n';
 }
 
 int main() {
@@ -29,5 +32,6 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
 
-    solve();
+    int t; cin >> t;
+    while(t--) solve();
 }
