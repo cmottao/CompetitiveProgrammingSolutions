@@ -2,13 +2,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve() {
-    int n; cin >> n;
-    vector<int> s(n);
+const int N = 1e5 + 10;
 
-    for(int i = 0; i < n; i++) {
-        cin >> s[i];
+vector<int> a(N), memo(N);
+int n;
+
+int f(int x) {
+    if(memo[x] != -1) {
+        return memo[x];
     }
+    else {
+        memo[x] = 1;
+
+        for(int i = 2*x; i <= n; i += x) {
+            if(a[i] > a[x]) {
+                memo[x] = max(memo[x], f(i) + 1);
+            }
+        }
+        return memo[x];
+    }
+}
+
+void solve() {
+    cin >> n;
+    int ans = 1;
+
+    for(int i = 1; i <= n; i++) {
+        memo[i] = -1;
+        cin >> a[i];
+    }
+
+    for(int i = 1; i <= n; i++) {
+        ans = max(ans, f(i));
+    }
+    cout << ans << '\n';
 }
 
 int main() {
