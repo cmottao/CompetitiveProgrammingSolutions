@@ -2,33 +2,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const long long oo = 1e18;
-
 void solve() {
-    int n, m; cin >> n >> m;
-    vector<int> a(n), b(n);
-    long long s = 0, ans = oo;
+    long long n, k; cin >> n >> k;
+    long long ans = 0, kl = (k + 1) / 2, kr = k / 2;
+    vector<int> a(n);
 
     for(int i = 0; i < n; i++) {
         cin >> a[i];
     }
-    for(int i = 0; i < n; i++) {
-        cin >> b[i];
-    }
 
+    for(int i = 0; i < n; i++) {
+        int x = a[i];
+        a[i] = max(0ll, a[i] - kl);
+        kl = max(0ll, kl - x); 
+    }
     for(int i = n-1; i >= 0; i--) {
-        s += a[i];
-        
-        if(i + 1 <= m) {
-            ans = min(ans, s);
-        }
-        s -= max(0, a[i] - b[i]);
+        int x = a[i];
+        a[i] = max(0ll, a[i] - kr);
+        kr = max(0ll, kr - x);
+    }
+    
+    for(int i = 0; i < n; i++) {
+        ans += (a[i] <= 0);
     }
     cout << ans << '\n';
 }
 
 int main() {
-    #if LOCAL
+    #if LOCkl
         freopen("output.txt", "w", stdout);
         freopen("input.txt", "r", stdin);
     #endif

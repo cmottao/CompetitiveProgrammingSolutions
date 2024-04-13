@@ -2,29 +2,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const long long oo = 1e18;
+const int oo = 2 * 1e9;
 
 void solve() {
-    int n, m; cin >> n >> m;
-    vector<int> a(n), b(n);
-    long long s = 0, ans = oo;
+    int n; cin >> n;
+    vector<int> ab(n);
+    int mx = -oo;
 
     for(int i = 0; i < n; i++) {
-        cin >> a[i];
+        cin >> ab[i];
     }
     for(int i = 0; i < n; i++) {
-        cin >> b[i];
+        int bi; cin >> bi;
+        ab[i] -= bi;
+        mx = max(mx, ab[i]);
     }
 
-    for(int i = n-1; i >= 0; i--) {
-        s += a[i];
-        
-        if(i + 1 <= m) {
-            ans = min(ans, s);
+    cout << count(ab.begin(), ab.end(), mx) << '\n';
+    for(int i = 0; i < n; i++) {
+        if(ab[i] == mx) {
+            cout << i + 1 << ' ';
         }
-        s -= max(0, a[i] - b[i]);
     }
-    cout << ans << '\n';
+    cout << '\n';
 }
 
 int main() {

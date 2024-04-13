@@ -2,27 +2,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const long long oo = 1e18;
-
 void solve() {
-    int n, m; cin >> n >> m;
-    vector<int> a(n), b(n);
-    long long s = 0, ans = oo;
-
+    int n, x, y; cin >> n >> x >> y;
+    map<pair<int, int>, int> mp;
+    long long ans = 0;
+    
     for(int i = 0; i < n; i++) {
-        cin >> a[i];
-    }
-    for(int i = 0; i < n; i++) {
-        cin >> b[i];
-    }
+        int ai; cin >> ai;
+        auto it = mp.find({(x - (ai % x)) % x, ai % y});
 
-    for(int i = n-1; i >= 0; i--) {
-        s += a[i];
-        
-        if(i + 1 <= m) {
-            ans = min(ans, s);
+        if(it != mp.end()) {
+            ans += (*it).second;
         }
-        s -= max(0, a[i] - b[i]);
+        mp[{ai % x, ai % y}]++;
     }
     cout << ans << '\n';
 }
