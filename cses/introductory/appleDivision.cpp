@@ -4,46 +4,43 @@ using namespace std;
 
 const int oo = 1e9;
 
-long long n, ans = oo, totalSum = 0;
-vector<int> s, subs;
+long long n, ss = 0, ts = 0, ans = oo;
+vector<int> p;
 
-long long sumSet(vector<int> set) {
-    long long s = 0;
-
-    for(int x : set) {
-        s += x;
-    }
-    return s;
-}
-
-int subsets(int i) {
+void search(int i) {
     if(i == n) {
-        ans = min(ans, abs(2 * sumSet(subs) - totalSum));
+        ans = min(ans, abs((2 * ss) - ts));
     }
     else {
-        subs.push_back(s[i]);
-        subsets(i + 1);
+        ss += p[i];
+        search(i + 1);
 
-        subs.pop_back();
-        subsets(i + 1);
+        ss -= p[i];
+        search(i + 1);
     }
-    return ans;
 }
 
 void solve() {
     cin >> n;
-
+    
     for(int i = 0; i < n; i++) {
         int pi; cin >> pi;
-        s.push_back(pi);
-        totalSum += pi;
+        p.push_back(pi);
+        ts += p[i];
     }
-    cout << subsets(0);
+
+    search(0);
+    cout << ans;
 }
 
 int main() {
+    #if LOCAL
+        freopen("output.txt", "w", stdout);
+        freopen("input.txt", "r", stdin);
+    #endif
+
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    
+
     solve();
 }
