@@ -2,16 +2,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 1e6 + 10;
+const int N = 1e6 + 10;
 const int oo = 1e9;
 
-vector<int> memo(MAX, -1), c;
+vector<int> memo(N, -1), c;
 
-int dp(int x) {
-    memo[0] = 0;
-
-    if(x < 0) {
-        return oo;
+int f(int x) { 
+    if(x == 0) {
+        return 0;
     }
     else if(memo[x] != -1) {
         return memo[x];
@@ -19,8 +17,10 @@ int dp(int x) {
     else {
         memo[x] = oo;
 
-        for(int i : c) {
-            memo[x] = min(memo[x], dp(x - i) + 1);
+        for(int ci : c) { 
+            if(x >= ci) {
+                memo[x] = min(memo[x], f(x - ci) + 1);
+            } 
         }
         return memo[x];
     }
@@ -33,14 +33,12 @@ void solve() {
         int ci; cin >> ci;
         c.push_back(ci);
     }
-
-    int ans = dp(x);
-    cout << ((ans == oo) ? -1 : ans);
+    cout << ((f(x) == oo) ? -1 : f(x));
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    
+
     solve();
 }

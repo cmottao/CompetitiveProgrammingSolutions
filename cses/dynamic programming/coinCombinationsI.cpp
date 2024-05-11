@@ -2,42 +2,43 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAX = 1e6 + 10;
-const int MOD = 1e9 + 7;
+const int mod = 1e9 + 7;
+const int N = 1e6 + 10;
 
-vector<int> memo(MAX, -1), c;
+vector<long long> memo(N, -1), c(110);
+int n;
 
-int dp(int x) {
-    memo[0] = 1;
-    
-    if(memo[x] != -1) {
+long long f(int x) { 
+    if(x == 0) {
+        return 1;
+    }
+    else if(memo[x] != -1) {
         return memo[x];
     }
     else {
         memo[x] = 0;
 
-        for(int i : c) {
-            if(x - i >= 0) {
-                memo[x] += dp(x - i) % MOD;
-            }
+        for(int i = 0; i < n; i++) { 
+            if(x >= c[i]) {
+                memo[x] += f(x - c[i]) % mod;
+            } 
         }
-        return memo[x] % MOD;
+        return memo[x] % mod;
     }
 }
 
 void solve() {
-    int n, x; cin >> n >> x;
+    int x; cin >> n >> x;
 
     for(int i = 0; i < n; i++) {
-        int ci; cin >> ci;
-        c.push_back(ci);
+        cin >> c[i];
     }
-    cout << dp(x);
+    cout << f(x);
 }
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    
+
     solve();
 }
