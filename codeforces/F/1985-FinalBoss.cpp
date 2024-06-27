@@ -19,6 +19,7 @@ void solve() {
 
         for(int i = 0; i < n; i++) {
             d += ((m / c[i]) + 1) * a[i];
+            if(d >= h) break;
         }
         (d < h) ? l = m + 1 : r = m;
     }
