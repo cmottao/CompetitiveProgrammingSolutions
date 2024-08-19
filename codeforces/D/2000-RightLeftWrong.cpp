@@ -17,7 +17,7 @@ void solve() {
     while(l < r) {
         while(l < n && s[l] != 'L') l++;
         while(r >= 0 && s[r] != 'R') r--;
-
+ 
         if(l < r) {
             ans += pfx[r + 1] - pfx[l];
             s[l] = s[r] = '.';

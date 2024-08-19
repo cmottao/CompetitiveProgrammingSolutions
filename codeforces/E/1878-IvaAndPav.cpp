@@ -11,7 +11,7 @@ void solve() {
     }
 
     for(int i = 1; i <= n; i++) {
-        int ai; cin >> ai;
+        int ai; cin >> ai; 
 
         for(int bit = 1, j = 0; j < 33; bit <<= 1, j++) {
             pfx[i][j] = pfx[i - 1][j] + ((ai & bit) ? 1 : 0);

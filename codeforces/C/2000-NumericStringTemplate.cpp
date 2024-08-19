@@ -12,7 +12,7 @@ void solve() {
 
     int m; cin >> m;
     for(int i = 0; i < m; i++) {
-        string si; cin >> si;
+        string si; cin >> si; 
 
         if(si.size() != n) {
             cout << "NO" << '\n';

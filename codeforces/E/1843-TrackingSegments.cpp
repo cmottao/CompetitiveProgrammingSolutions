@@ -8,7 +8,7 @@ void solve() {
 
     for(int i = 0; i < m; i++) {
         cin >> s[i].first >> s[i].second;
-    }
+    } 
 
     int q; cin >> q;
     vector<int> x(q + 1);

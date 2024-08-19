@@ -14,7 +14,7 @@ void solve() {
     }
     sort(b.rbegin(), b.rend());
 
-    int w; cin >> w;
+    int w; cin >> w; 
     vector<int> a(w);
 
     for(int i = 0; i < w; i++) {

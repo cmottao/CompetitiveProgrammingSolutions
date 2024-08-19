@@ -9,7 +9,7 @@ void solve() {
     for(int i = 0; i < n; i++) {
         cin >> a[i];
     }
-
+ 
     for(int i = 0; i < n; i++) {
         if(i == 0) vis[a[i]] = 1;
         else {
