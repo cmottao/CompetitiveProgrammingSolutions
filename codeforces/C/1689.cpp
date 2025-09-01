@@ -2,20 +2,45 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+const int N = 3e5 + 10;
+
+vector<int> t[N];
+int s[N];
+
+int dfs(int i, int p) {
+    for(int x : t[i]) {
+        if(x != p) s[i] += dfs(x, i);
+    }
+    return s[i] += 1;
+}
+
+int dfs1(int i, int p) {
+    vector<int> c;
+
+    for(int x : t[i]) {
+        if(x != p) c.push_back(x);
+    }
+
+    if(c.empty()) return 0;
+    if(c.size() == 1) return s[c[0]] - 1;
+    return max(s[c[0]] - 1 + dfs1(c[1], i), s[c[1]] - 1 + dfs1(c[0], i));
+}
+
 void solve() {
     int n; cin >> n;
-    int ans = 0, mn = n + 1, mnw = n + 1;
 
-    for(int i = 0; i < n; i++) {
-        int pi; cin >> pi;
-
-        if(pi > mn && pi < mnw) {
-            mnw = pi;
-            ans++;
-        }
-        mn = min(mn, pi);
+    for(int i = 1; i <= n; i++) {
+        t[i].clear();
+        s[i] = 0;
     }
-    cout << ans << '\n';
+
+    for(int i = 1; i < n; i++) {
+        int ui, vi; cin >> ui >> vi;
+        t[ui].push_back(vi); t[vi].push_back(ui);
+    }
+
+    dfs(1, 1);
+    cout << dfs1(1, 1) << '\n';
 }
 
 int main() {
